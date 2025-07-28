@@ -61,7 +61,7 @@ def CreateCheckoutSessionView(request, item_id):
     currency = selected_currency
     if currency=='eur':
         response = requests.get("https://api.exchangerate.host/convert", params={
-        "access_key":"4e893d67f180834c6629e9db1a5fde7b",
+        "access_key":settings.ACCESS_KEY,
         "from": "USD",
         "to": "EUR",
         "amount": item.price

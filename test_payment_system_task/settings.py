@@ -130,3 +130,5 @@ STRIPE_PUBLISHABLE_KEY ={
     'usd': config('STRIPE_PUBLISHABLE_KEY_USD'),
     'eur': config('STRIPE_PUBLISHABLE_KEY_EUR')
     }
+
+ACCESS_KEY=config('ACCESS_KEY')
