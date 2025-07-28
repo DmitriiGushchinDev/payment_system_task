@@ -1,0 +1,1 @@
+web: gunicorn test_payment_system_task.wsgi
