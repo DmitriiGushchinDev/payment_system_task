@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Item List</h1>
+<ul>
+    {% for item in items %}
+     <li>
+        <h2> <a href="{% url 'payment:item_detail' item.id %}">{{item.name}}</a></h2>   
+        <p>Price: ${{ item.price }}</p>
+     </li>
+    {% endfor %}
+</ul>
+<div>
+    <a href="{% url 'payment:cart' %}"><button class='btn btn-primary'>View Cart</button></a>
+{% endblock content %}

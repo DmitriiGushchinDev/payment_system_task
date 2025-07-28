@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{%block content %}
+{% for order in order_items %}
+{% if order.item.name %}
+{{ order.item.name }} - Quantity: {{ order.quantity }}
+<br>
+{% endif %}
+{% endfor %}
+{%if not order_items %}
+<p>Your cart is empty.</p>
+{% else %}
+<a href="{% url 'payment:buy_order' %}"><button class='btn btn-primary' style='margin: 5px;'>Buy</button></a>
+{% endif %}
+<div>
+    <a href="{% url 'payment:item_list' %}"><button class='btn btn-primary' style='margin: 5px;'>Back to Item List</button></a>
+</div>
+{% endblock %}

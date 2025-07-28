@@ -1,0 +1,35 @@
+<script src="https://js.stripe.com/v3/"></script>
+
+<h2>Pay for {{ item.name }} ({{ item.price }} usd)</h2>
+
+<form id="payment-form">
+  <div id="card-element"></div>
+  <button type="submit">Pay</button>
+  <div id="error-message"></div>
+</form>
+
+<script>
+  const stripe = Stripe("{{ publishableKey }}");
+  const clientSecret = "{{ clientSecret }}";
+
+  const elements = stripe.elements();
+  const card = elements.create("card");
+  card.mount("#card-element");
+
+  const form = document.getElementById("payment-form");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: card
+      }
+    });
+
+    if (error) {
+      document.getElementById("error-message").textContent = error.message;
+    } else {
+      window.location.href = "/payment-success/";
+    }
+  });
+</script>

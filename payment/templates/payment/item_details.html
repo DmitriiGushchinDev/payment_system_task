@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ item.name }}</h1>
+<p>{{ item.description }}</p>
+<p>Price: ${{ item.price }}</p>
+<a href="{% url 'payment:create_checkout_session' item.id %}?currency=usd"> <button class='btn btn-primary' style='margin: 5px;'>Buy in usd</button></a>
+<a href="{% url 'payment:create_checkout_session' item.id %}?currency=eur"> <button class='btn btn-primary' style='margin: 5px;'>Buy in eur</button></a>
+<a href="{% url 'payment:payment_intent' item.id %}"> <button class='btn btn-primary' style='margin: 5px;'>Buy different payment method</button></a>
+
+<div><a href="{% url 'payment:item_list' %}"><button class='btn btn-primary' style='margin: 5px;'>Back to Item List</button></a></div>
+<div><a href="{% url 'payment:add_to_cart' item.id %}"><button class='btn btn-primary' style='margin: 5px;'>Add to Cart</button></a></div>
+<div><a href="{% url 'payment:cart' %}"><button class='btn btn-primary' style='margin: 5px;'>View Cart</button></a></div>
+{% endblock content %}

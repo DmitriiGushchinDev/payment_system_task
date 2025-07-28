@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}My Shop{% endblock %}</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        {% comment %} <h1>Welcome to My Shop</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'payment:item_list' %}">Items</a></li>
+            </ul>
+        </nav> {% endcomment %}
+    </header>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+</html>
