@@ -1,1 +1,25 @@
-# payment_system_task# payment_system_task
+# Payment System Task
+### Доступ к веб сайту возможен по ссылке:
+https://payment-system-task-1.onrender.com
+### Выполнены все бонусные задания
+##### .env представлен в виде:
+STRIPE_SECRET_KEY_USD =
+
+STRIPE_SECRET_KEY_EUR =
+
+STRIPE_PUBLISHABLE_KEY_USD =
+
+STRIPE_PUBLISHABLE_KEY_EUR =
+
+ACCESS_KEY =
+##### Для запуска программы через докер:
+```bash
+doker compose build
+docker compose up
+```
+##### Главная страница содержит список доступных Items, которые можно изменять в админ панеле
+##### После нажатия на Item, можно увидеть информацию об определенном Item
+##### В определенном Item можно выбрать валюту для оплаты, либо добавить item в корзину (Корзина была добавлена для реализации модели Order)
+##### Для наглядности так же можно купить Item через  Stripe Payment Intent
+##### Для оплаты в другой валюте отправляется GET запрос на данный сервис  https://api.exchangerate.host/convert для конвертации валют
+##### Так же можно просмотреть и оплатить содержимое корзины.
